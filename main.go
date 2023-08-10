@@ -25,6 +25,7 @@ func getAlbums(c *gin.Context) {
 func postAlbums(c *gin.Context) {
 	var newAlbum album
 
+	// Call BinJSON to bind the received JSON to newAlbum
 	if err := c.BindJSON(&newAlbum); err != nil {
 		return
 	}
