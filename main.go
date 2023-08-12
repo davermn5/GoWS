@@ -18,10 +18,12 @@ var albums = []album{
 	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 }
 
+// This function gets a list of all albums, returned as JSON.
 func getAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, albums)
 }
 
+// Modifies the collection of all albums by adding the 'POST'ed new album.
 func postAlbums(c *gin.Context) {
 	var newAlbum album
 
@@ -34,6 +36,7 @@ func postAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
+// This function returns the sub-struct of the 'albums' struct if the id value (which was parsed from the client http request) equals the id value of the defined dictionary here in this go file.
 func getAlbumByID(c *gin.Context) {
 	id := c.Param("id")
 
